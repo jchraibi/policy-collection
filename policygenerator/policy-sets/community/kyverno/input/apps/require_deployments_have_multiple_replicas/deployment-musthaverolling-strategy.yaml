@@ -1,7 +1,7 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
-  name: deployment-must-have-rolling
+  name: deployment-must-have-rolling-update
   annotations:
     policies.kyverno.io/title: Require Multiple Replicas
     policies.kyverno.io/category: Sample
@@ -15,11 +15,13 @@ spec:
   validationFailureAction: audit
   background: true
   rules:
-    - name: deployment-has-multiple-replicas
+    - name: deployment-has-rolling-update
       match:
         resources:
           kinds:
           - Deployment
+          namespaces:
+          - kyverno-demo
       validate:
         message: "Deployments should have RollingUpdate strategy"
         pattern:
