@@ -51,7 +51,10 @@ policies:
   disabled: false
   manifests:
     - path: ../input/apps/poddisruptionbudget  
-- name: deployreqmultiplereplicas
+- name: deployment-has-multiple-replicas
+  namespaceSelector:
+    include:
+      - kyverno-demo
   categories:
     - setup
   controls: 
