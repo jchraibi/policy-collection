@@ -15,7 +15,7 @@ spec:
   validationFailureAction: audit
   background: true
   rules:
-    - name: deployment-has-multiple-replicas
+    - name: deployment-has-more-3-replicas
       match:
         resources:
           kinds:
