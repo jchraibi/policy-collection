@@ -20,6 +20,8 @@ spec:
         resources:
           kinds:
           - Deployment
+          namespaces:
+          - kyverno-demo
       validate:
         message: "Deployments should have more than one replica to ensure availability."
         pattern:
